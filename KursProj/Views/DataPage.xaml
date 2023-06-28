@@ -1,0 +1,72 @@
+﻿<Page x:Class="KursProj.Views.DataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KursProj.Views"
+      Loaded="Page_Loaded"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DataPage" Background="AntiqueWhite">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Text="Приложение для обмена книгами"/>
+        <ListView Grid.Row="0" Name="LWBooks" Width="1100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" Height="95">
+                        
+        <Image Height="90" 
+                               Width="90"
+                               Source="{Binding correctimage}"
+                               Margin="0 0 20 0"
+                               Name="BookImage"/>
+        
+                        <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2">
+                            <StackPanel Width="335">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}"  Foreground="{StaticResource ColorFont}" Text="{Binding Authors.surname}"/>
+                                    <TextBlock FontSize="14"  Foreground="{StaticResource ColorFont}" Text="|"/>
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}" Foreground="{StaticResource ColorFont}" Text="{Binding Authors.name}"/>
+                                    <TextBlock FontSize="14"  Foreground="{StaticResource ColorFont}" Text="|"/>
+                                    <TextBlock FontSize="14" TextAlignment="Center" Style="{StaticResource BlockDescription}" Foreground="{StaticResource ColorFont}" Text="{Binding Authors.patronymic}"/>
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <TextBlock TextAlignment="Center" TextWrapping="Wrap" FontSize="36" Text="{Binding name}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="20 0 20 0">
+                            <StackPanel Width="250">
+                                <TextBlock Text="{Binding description}" TextWrapping="Wrap" Name="TBDescription"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="0,0,20,0">
+                            <StackPanel>
+                                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Style="{StaticResource BlockDescription}" Text="{Binding Genres.name}"/>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Style="{StaticResource BlockDescription}" Text="{Binding State.name}"/>
+
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="{StaticResource AnotherColor}" BorderThickness="2" Margin="0,0,20,0">
+                            <StackPanel>
+                                <Button Content="Подробнее" Click="Info_Click"/>
+                                <Button Content="Обменять" Click="BtnChange_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

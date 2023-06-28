@@ -1,0 +1,20 @@
+﻿<Window x:Class="KursProj.Views.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KursProj.Views"
+        mc:Ignorable="d"
+        Title="Вход и регистрация" Height="550" Width="800" Background="AntiqueWhite">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Авторизация" TextAlignment="Center" VerticalAlignment="Center" FontSize="42"/>
+        <Image Name="GoBackImage" Grid.Row="0" Width="50" Height="50" HorizontalAlignment="Left" Margin="40 0 0 0" Source="/Icon.ico" MouseLeftButtonUp="GoBackImage_Click"/>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="AuthFrame"/>
+    </Grid>
+</Window>

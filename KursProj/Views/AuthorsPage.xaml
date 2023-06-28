@@ -1,0 +1,49 @@
+﻿<Page x:Class="KursProj.Views.AuthorsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KursProj.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthorsPage" Background="AntiqueWhite">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <ComboBox x:FieldModifier="public" Name="ComboSortBy" SelectionChanged="ComboSortBy_SelectionChanged">
+                <ComboBoxItem Content="В алфавитном порядке"></ComboBoxItem>
+                <ComboBoxItem Content="В обратном алфавитном порядке"></ComboBoxItem>
+            </ComboBox>
+            <TextBox x:FieldModifier="public" x:Name="TBSearch" TextChanged="TBoxSearch_TextChanged"></TextBox>
+        </StackPanel>
+        <ListView Grid.Row="1" Name="LVAuthors">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{StaticResource ColorAccent}">
+                        <Grid HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Width="800">
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding name}" TextAlignment="Center"/>
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding surname}" TextAlignment="Center"/>
+                                <TextBlock Style="{StaticResource BlockDescription}" Text="{Binding patronymic}" TextAlignment="Center"/>
+
+                                <!--<TextBlock Text="{Binding name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding surname}"  TextAlignment="Center"/>
+                                <TextBlock Text="{Binding patronymic}" TextAlignment="Center" />-->
+                                
+                                    <Button Margin="50 5 5 5" Width="150" Name="BtnEdit"  Click="BtnEdit_Click" Content="Редактировать"/>
+                                    <Button Width="150" Name="BtnDelete"  Click="BtnDelete_Click" Content="Удалить"/>
+                                
+                                
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
